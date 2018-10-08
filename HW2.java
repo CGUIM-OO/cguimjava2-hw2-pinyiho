@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 /**
- * @author TODO: please add student ID and name here
+ * @author TODO: B0444106 ¦ó«~»ö 
  * Try to write some comments for your codes (methods, 15 points)
  */
 public class HW2 {
@@ -26,13 +26,13 @@ public class HW2 {
 	}
 	/**
 	 * This method is used for checking your result, not a part of your HW2
-	 * @param allCards æ‰€æœ‰çš„ç‰Œ
-	 * @param nDeck ç¸½å…±æœ‰å¹¾å‰¯ç‰Œ
+	 * @param allCards ©Ò¦³ªºµP
+	 * @param nDeck Á`¦@¦³´X°ÆµP
 	 * @return
 	 */
 	private static boolean isAllCardsCorrect(ArrayList<Card> allCards,int nDeck){
 		//check the output 
-		boolean isCorrect=true;;
+		boolean isCorrect=true;
 		HashMap <String,Integer> checkHash=new HashMap<String,Integer>();
 		for(Card card:allCards){
 			int suit= card.getSuit();
@@ -77,13 +77,25 @@ class Deck{
 		//Card card=new Card(1,1); ->means new card as clubs ace
 		//cards.add(card);
 		//Sample code end
-
-	}	
+		//³oÃä­n«Ø¥ß¤@­ÓµP²Õ¸Ì­±­n¦³52±iµP
+        for(int deck=0;deck<nDeck;deck++) { //´X°ÆµP
+        	for(int suit=1;suit<=4;suit++) { //¥|ªá¦â
+        		for(int rank=1;rank<=13;rank++) { //¤@ªá¦â¦³13±i 
+        			Card card=new Card(suit,rank);//«Ø¥ß¤@­ÓCardÃþ§Oªºª«¥ó
+        			cards.add(card);//±N«Ø¥ßªºcardª«¥ó¥[¤JArrayList<Card> cards¤¤
+        		}
+        	}
+        }
+	}
 	//TODO: Please implement the method to print all cards on screen (10 points)
 	public void printDeck(){
 		//Hint: print all items in ArrayList<Card> cards, 
 		//TODO: please implement and reuse printCard method in Card class (5 points)
-
+		Card card;
+		for(int n=0;n<cards.size();n++) {
+			card=cards.get(n);//¨ú±ocards¤¤ ¯Á¤Þ­È¬°n¤§­È¡A¨Ã±N¤§¶Çµ¹card
+			card.printCard();//¨Ï¥ÎprintCard() Method
+		}
 	}
 	public ArrayList<Card> getAllCards(){
 		return cards;
@@ -106,7 +118,7 @@ class Card{
 	//TODO: 1. Please implement the printCard method (20 points, 10 for suit, 10 for rank)
 	public void printCard(){
 		//Hint: print (System.out.println) card as suit,rank, for example: print 1,1 as Clubs Ace
-
+		System.out.println(suit+","+rank);//print¥Xsuit,rank(ªá¦â,¸¹½X)
 	}
 	public int getSuit(){
 		return suit;
